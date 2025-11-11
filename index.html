@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lənkəran Dövlət Peşə Təhsil Mərkəzi</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5e0ff;
+    color: #3b0a75;
+    transition: background 0.3s;
+  }
+
+  header {
+    background: linear-gradient(90deg, #c084fc, #d8b4ff);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+  }
+
+  header h1 {
+    text-align: center;
+    margin: 0;
+    color: #fff;
+    font-size: 28px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+
+  header p {
+    text-align: center;
+    margin: 0;
+    color: #fff;
+    font-size: 16px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(90deg, #d8b4ff, #c084fc);
+    transition: background 0.3s;
+  }
+
+  nav a {
+    color: #3b0a75;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  nav a:hover {
+    background-color: #a855f7;
+    color: #fff;
+    transform: scale(1.1);
+    border-radius: 5px;
+  }
+
+  main {
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    transition: all 0.3s;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(90deg, #c084fc, #d8b4ff);
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s ease;
+  }
+
+  .modal-content {
+    background-color: #e9d5ff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    animation: slideDown 0.3s ease;
+  }
+
+  .modal-content h2 {
+    text-align: center;
+    color: #4c0070;
+    margin-bottom: 20px;
+  }
+
+  .modal-content input, 
+  .modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #c084fc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  .modal-content button {
+    width: 100%;
+    padding: 10px;
+    background-color: #a855f7;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .modal-content button:hover {
+    background-color: #7e22ce;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes slideDown {
+    from {transform: translateY(-20px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+  }
+
+  @media (max-width: 768px) {
+    header h1 { font-size: 24px; }
+    nav a { padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Lənkəran Dövlət Peşə Təhsil Mərkəzi</h1>
+  <p>Daha peşəkar gələcək bizimlə gələcək</p>
+</header>
+
+<nav>
+  <a id="homeLink">Ana Səhifə</a>
+  <a href="#">Haqqında</a>
+  <a href="#">İxtisaslar</a>
+  <a href="#">Vakansiyalar</a>
+  <a href="#">Müəllimlər</a>
+  <a href="#">Tələbələr</a>
+  <a href="#">Tədris Resursları</a>
+  <a id="contactLink">Əlaqə</a>
+  <a id="feedbackBtn">İrad və Təklifləriniz</a>
+</nav>
+
+<main id="mainContent">
+  <!-- Orta hissə boş -->
+</main>
+
+<!-- Modal -->
+<div id="feedbackModal" class="modal">
+  <div class="modal-content">
+    <h2>İrad və Təklifləriniz</h2>
+    <form>
+      <input type="text" name="name" placeholder="Adınız" required>
+      <input type="email" name="email" placeholder="E-poçtunuz" required>
+      <textarea name="message" placeholder="Mesajınız" rows="5" required></textarea>
+      <button type="submit">Göndər</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Lənkəran Dövlət Peşə Təhsil Mərkəzi
+</footer>
+
+<script>
+  const mainContent = document.getElementById("mainContent");
+  const homeLink = document.getElementById("homeLink");
+  const contactLink = document.getElementById("contactLink");
+  const feedbackBtn = document.getElementById("feedbackBtn");
+  const modal = document.getElementById("feedbackModal");
+
+  // Ana səhifə
+  homeLink.onclick = function() {
+    mainContent.innerHTML = "";
+  }
+
+  // Əlaqə
+  contactLink.onclick = function() {
+    mainContent.innerHTML = `
+      <div style="text-align:center; font-size:18px; color:#4c0070;">
+        <p>Bizimlə əlaqə:</p>
+        <p>Facebook: <a href="https://www.facebook.com/" target="_blank">facebook.com/LenkeranPeshe</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/" target="_blank">instagram.com/LenkeranPeshe</a></p>
+      </div>
+    `;
+  }
+
+  // İrad və Təklifləriniz pop-up
+  feedbackBtn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  window.onclick = function(event) {
+    if(event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>
